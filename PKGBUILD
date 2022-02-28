@@ -1,4 +1,4 @@
-# Crystal Maintainer: Matt C <matt@getcryst.al>
+# Crystal Maintainer: echo -n 'bWF0dEBnZXRjcnlzdC5hbA==' | base64 --decode
 # AUR Maintainer: Dylan Araps <dyl@tfwno.gf>
 pkgname=neofetch
 _pkgname=neofetch
