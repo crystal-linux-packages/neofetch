@@ -1,5 +1,6 @@
-# Crystal Maintainer: echo -n 'bWF0dEBnZXRjcnlzdC5hbA==' | base64 --decode
-# AUR Maintainer: Dylan Araps <dyl@tfwno.gf>
+# Maintainer:  echo -n 'TWF0dCBDLiA8bWF0dEBnZXRjcnlzdC5hbD4=' | base64 -d
+# Contributor: echo -n 'RHlsYW4gQXJhcHMgPGR5bEB0Znduby5nZj4=' | base64 -d
+
 pkgname=neofetch
 _pkgname=neofetch
 pkgver=8.0
