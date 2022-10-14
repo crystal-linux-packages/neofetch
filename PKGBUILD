@@ -1,17 +1,14 @@
-# Maintainer:  echo -n 'TWF0dCBDLiA8bWF0dEBnZXRjcnlzdC5hbD4=' | base64 -d
-# Contributor: echo -n 'RHlsYW4gQXJhcHMgPGR5bEB0Znduby5nZj4=' | base64 -d
+# Maintainer:  echo -n 'TWF0dCBDLiA8bWF0dEBnZXRjcnlzdC5hbD4='     | base64 -d
+# Contributor: echo -n 'TWljaGFsIFMuIDxtaWNoYWxAZ2V0Y3J5c3QuYWw+' | base64 -d
+# Contributor: echo -n 'Um9iaW4gQy4gPHJjYW5kYXVAZ2V0Y3J5c3QuYWw+' | base64 -d
 
 pkgname=neofetch
-_pkgname=neofetch
-pkgver=8.0
-pkgrel=69
+pkgver=429499e9b9b39127a8a781d135cafb6babdea631
+pkgrel=1
 pkgdesc="A CLI system information tool written in BASH that supports displaying images."
 arch=('any')
-url="https://github.com/dylanaraps/${_pkgname}"
+url="https://github.com/dylanaraps/neofetch"
 license=('MIT')
-provides=($_pkgname)
-conflicts=($_pkgname)
-depends=('bash')
 optdepends=(
   'feh: Wallpaper Display'
   'imagemagick: Image cropping / Thumbnail creation / Take a screenshot'
@@ -26,17 +23,11 @@ optdepends=(
   'xorg-xrandr: Resolution detection (Multi Monitor + Refresh rates)'
   'xorg-xwininfo: See https://github.com/dylanaraps/neofetch/wiki/Images-in-the-terminal'
 )
-makedepends=('git')
-source=("$pkgname::git+https://github.com/dylanaraps/neofetch.git")
-md5sums=('SKIP')
-
-pkgver() {
-  cd $pkgname
-  git describe --tags --long | sed -r -e 's,^[^0-9]*,,;s,([^-]*-g),r\1,;s,[-_],.,g'
-}
+source=("${pkgname}-${pkgver}::${url}/archive/${pkgver}.tar.gz")
+sha256sums=('05b61a8710e5c14b23dfb4299c69582b234563ccdfd7f54982af44fdfc2216e5')
 
 package() {
-  cd $pkgname
-  make DESTDIR="$pkgdir" install
-  install -D -m644 LICENSE.md "$pkgdir/usr/share/licenses/neofetch/LICENSE.md"
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    make DESTDIR="${pkgdir}" install
+    install -Dm 644 LICENSE.md "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE.md"
 }
